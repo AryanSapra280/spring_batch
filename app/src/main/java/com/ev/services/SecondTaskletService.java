@@ -12,6 +12,8 @@ public class SecondTaskletService implements Tasklet {
     @Override
     public RepeatStatus execute(StepContribution contribution, ChunkContext chunkContext) throws Exception {
         System.out.println("I am executing a huge service");
+        System.out.println("before job I put key-value in jobExecutionMap now accessing using chunkContext" +
+                chunkContext.getStepContext().getJobExecutionContext());
         return RepeatStatus.FINISHED;
     }
 }

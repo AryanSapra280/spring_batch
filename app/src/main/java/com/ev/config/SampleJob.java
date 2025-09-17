@@ -1,5 +1,6 @@
 package com.ev.config;
 
+import com.ev.listeners.FirstJobListener;
 import com.ev.services.SecondTaskletService;
 import org.springframework.batch.core.Job;
 import org.springframework.batch.core.Step;
@@ -25,9 +26,13 @@ public class SampleJob {
     @Autowired
     private SecondTaskletService secondTaskletService;
 
+    @Autowired
+    private FirstJobListener firstJobListener;
+
     @Bean
     public Job myFirstJob() {
-        return new JobBuilder("myFirstJob",jobRepository).incrementer(new RunIdIncrementer()).start(myFirstStep()).next(mySecondStep()).build();
+        return new JobBuilder("myFirstJob",jobRepository).incrementer(new RunIdIncrementer())
+                 .start(myFirstStep()).next(mySecondStep()).listener(firstJobListener).build();
     }
 
     private Step mySecondStep() {
