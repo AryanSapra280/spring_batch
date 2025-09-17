@@ -11,7 +11,7 @@ import java.util.List;
 
 @Component
 public class FirstItemReader implements ItemReader<Integer> {
-    List<Integer> list = Arrays.asList(1,2,3,4,5,6);
+    List<Integer> list = Arrays.asList(1,2,3,4,5,6,7);
     int count = 0;
 
     @Override

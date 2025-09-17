@@ -6,7 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
-@ComponentScan({"com.ev.config","com.ev.services", "com.ev.listeners"})
+@ComponentScan({"com.ev.config","com.ev.services", "com.ev.listeners","com.ev.itemReaders","com.ev.itemProcessors","com.ev.itemWritter"})
 //@EnableBatchProcessing //enables batch processing features
 public class AppApplication {
 
