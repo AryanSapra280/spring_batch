@@ -4,6 +4,7 @@ import com.ev.services.SecondTaskletService;
 import org.springframework.batch.core.Job;
 import org.springframework.batch.core.Step;
 import org.springframework.batch.core.job.builder.JobBuilder;
+import org.springframework.batch.core.launch.support.RunIdIncrementer;
 import org.springframework.batch.core.repository.JobRepository;
 import org.springframework.batch.core.step.builder.StepBuilder;
 import org.springframework.batch.repeat.RepeatStatus;
@@ -26,7 +27,7 @@ public class SampleJob {
 
     @Bean
     public Job myFirstJob() {
-        return new JobBuilder("myFirstJob",jobRepository).start(myFirstStep()).next(mySecondStep()).build();
+        return new JobBuilder("myFirstJob",jobRepository).incrementer(new RunIdIncrementer()).start(myFirstStep()).next(mySecondStep()).build();
     }
 
     private Step mySecondStep() {
