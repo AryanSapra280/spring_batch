@@ -4,10 +4,13 @@ import org.springframework.batch.core.configuration.annotation.EnableBatchProces
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.scheduling.annotation.EnableAsync;
 
 @SpringBootApplication
-@ComponentScan({"com.ev.config","com.ev.services", "com.ev.listeners","com.ev.itemReaders","com.ev.itemProcessors","com.ev.itemWritter"})
+@ComponentScan({"com.ev.config","com.ev.services", "com.ev.listeners","com.ev.itemReaders","com.ev.itemProcessors"
+		,"com.ev.itemWritter", "com.ev.controller", "com.ev.creationObjectPattern"})
 //@EnableBatchProcessing //enables batch processing features
+@EnableAsync
 public class AppApplication {
 
 	public static void main(String[] args) {

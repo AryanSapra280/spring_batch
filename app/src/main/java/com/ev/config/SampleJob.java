@@ -45,7 +45,7 @@ public class SampleJob {
     @Autowired
     private FirstItemWriter firstItemWriter;
 
-//    @Bean comment this because I started working on another job which runs chunk oriented steps
+    @Bean  //comment this because I started working on another job which runs chunk oriented steps
     public Job myFirstJob() {
         return new JobBuilder("myFirstJob",jobRepository).incrementer(new RunIdIncrementer())
                  .start(myFirstStep()).next(mySecondStep()).listener(firstJobListener).build();
